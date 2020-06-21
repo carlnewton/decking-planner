@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./dist/css/layout.css">
+        <title>Decking Planner</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <h1 class="display-3">Decking Planner</h1>
+                    <p class="lead m-5">
+                        This page allows you to predict how many decking boards would be required for a decking area. It does not take into account the underlying joists or an edge. All measurements are in millimeters, but I suppose you could think of them as whatever unit of measurement you prefer.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-4">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            Area
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="decking-area-width">Width</label>
+                                    <input type="number" class="form-control" id="decking-area-width" min="1000" step="10" value="3400">
+                                </div>
+                                <div class="form-group">
+                                    <label for="decking-area-length">Length</label>
+                                    <input type="number" class="form-control" id="decking-area-length" min="1000" step="10" value="3100">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card bg-light mt-3">
+                        <div class="card-header">
+                            Boards
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="decking-board-width">Width</label>
+                                    <input type="number" class="form-control" id="decking-board-width" min="60" max="240" value="120">
+                                </div>
+                                <div class="form-group">
+                                    <label for="decking-board-length">Length</label>
+                                    <input type="number" class="form-control" id="decking-board-length" min="60" step="10" value="2400">
+                                </div>
+                                <div class="form-group">
+                                    <label for="decking-board-gap">Gap</label>
+                                    <input type="number" class="form-control" id="decking-board-gap" min="5" max="10" value="6">
+                                </div>
+                                <div class="form-group">
+                                    <label for="blade-cutting-width">Blade cutting width</label>
+                                    <input type="number" class="form-control" id="blade-cutting-width" min="0" step="0.1" max="10" value="1.2">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+            <div class="row mt-3 justify-content-center">
+                <div class="col-8">
+                    <p class="lead mb-5 mt-5 text-center">
+                        In theory, this could be built with <strong id="actual-number">0</strong> boards, but it's probably best to buy <strong id="purchase-number">0</strong>...
+                    </p>
+                    <div class="media mb-5">
+                        <img src="dist/img/edge.jpg" class="rounded-circle mr-3 shadow-sm" alt="You may want to add an edge">
+                        <div class="media-body">
+                            <h5 class="mt-0">You may want to add an edge</h5>
+                            If adding an edge, you will need to measure the size of the decking area and consider that it will need to travel past the decking area to be flush with the other edge faces.
+                        </div>
+                    </div>
+                    <div class="media mb-5 text-right">
+                        <div class="media-body">
+                            <h5 class="mt-0">Some decking boards may arrive warped or damaged</h5>
+                            Bows, crooks, kinks, cups and twists might cause some of the boards to be unusable or unsuitable in some places, causing you to have to cut a piece early or to scrap it entirely.
+                        </div>
+                        <img src="dist/img/warped.jpg" class="rounded-circle ml-3 shadow-sm" alt="Some decking boards may arrive warped or damaged">
+                    </div>
+                    <div class="media mb-5">
+                        <img src="dist/img/offcut.jpg" class="rounded-circle mr-3 shadow-sm" alt="An offcut may be too small to reach an underlying joist">
+                        <div class="media-body">
+                            <h5 class="mt-0">An offcut may be too small to reach an underlying joist</h5>
+                            Each end of a decking board will ideally be attached to a joist. This is likely not to be always possible without cutting a piece earlier than expected.
+                        </div>
+                    </div>
+                    <div class="media mb-5 text-right">
+                        <div class="media-body">
+                            <h5 class="mt-0">We all make mistakes</h5>
+                            It's always good to have some boards spare in case an incorrect measurement results in an unusable piece of wood. If it all goes well, you now have plenty of scrap wood for more fun projects.
+                        </div>
+                        <img src="dist/img/mistakes.jpg" class="rounded-circle ml-3 shadow-sm" alt="We all make mistakes">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/carlnewton/decking-planner"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="./dist/js/script.js"></script>
+    </body>
+</html>
